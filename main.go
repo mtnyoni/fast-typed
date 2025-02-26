@@ -139,7 +139,7 @@ func getGameState(this js.Value, args []js.Value) interface{} {
 }
 
 func main() {
-	c := make(chan struct{}, 0)
+	c := make(chan struct{})
 
 	js.Global().Set("initGame", js.FuncOf(initGame))
 	js.Global().Set("processKeyPress", js.FuncOf(processKeyPress))
