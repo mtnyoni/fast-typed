@@ -1,0 +1,139 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.game-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.race-track {
+    position: relative;
+    height: 100px;
+    background-color: #333;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.finish-line {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 10px;
+    background: repeating-linear-gradient(
+        45deg,
+        black,
+        black 10px,
+        white 10px,
+        white 20px
+    );
+}
+
+.car {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    transition: left 0.3s ease-out;
+}
+
+.car img {
+    width: 60px;
+    height: auto;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.stat-item {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.text-display {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.char {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.char.correct {
+    color: #4caf50;
+}
+
+.char.incorrect {
+    color: #f44336;
+}
+
+.char.current {
+    background-color: #e0e0e0;
+}
+
+.input-area {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#game-message {
+    margin-bottom: 10px;
+    font-weight: bold;
+    height: 20px;
+}
+
+button {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
