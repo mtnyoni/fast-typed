@@ -86,7 +86,15 @@ function renderText(text) {
 	// Create span for each character
 	for (let i = 0; i < text.length; i++) {
 		const charSpan = document.createElement("span");
-		charSpan.textContent = text[i];
+
+		// Handle spaces specially to make them visible
+		if (text[i] === " ") {
+			charSpan.innerHTML = "&nbsp;";
+			charSpan.classList.add("space-char");
+		} else {
+			charSpan.textContent = text[i];
+		}
+
 		charSpan.classList.add("char");
 		if (i === 0) {
 			charSpan.classList.add("current");
@@ -107,24 +115,23 @@ function updateTextDisplay(position) {
 
 	// Update character classes based on game state
 	for (let i = 0; i < chars.length; i++) {
-		if (i < position) {
-			chars[i].classList.add("correct");
-			chars[i].classList.remove("incorrect");
+		// Mark characters as correct or incorrect based on what was typed
+		if (i < gameState.typed.length) {
+			if (
+				i < gameState.text.length &&
+				gameState.typed[i] === gameState.text[i]
+			) {
+				chars[i].classList.add("correct");
+				chars[i].classList.remove("incorrect");
+			} else {
+				chars[i].classList.remove("correct");
+				chars[i].classList.add("incorrect");
+			}
 		}
+
 		// Current character
 		if (i === position && gameState.gameActive) {
 			chars[i].classList.add("current");
-		}
-	}
-
-	// Check for incorrectly typed characters
-	for (let i = 0; i < gameState.typed.length; i++) {
-		if (
-			i < gameState.text.length &&
-			gameState.typed[i] !== gameState.text[i]
-		) {
-			chars[i].classList.remove("correct");
-			chars[i].classList.add("incorrect");
 		}
 	}
 }
